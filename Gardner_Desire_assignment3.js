@@ -9,28 +9,44 @@ alert("JavaScript works!");
 
 
 
-// Global variables
+// Global variables------------------------------------------------------------
 var myfiance = "Desire";
 costPerPlate = 5;
 ringLocation = new Array("pocket", "coat", "car");
 timeToPropose = true;
 guestCar = {
-	type: "Limo",
-	color: "white",
-	gas: true,
-	make: ["Benz", "Cadillac", "Lexus"],
-	doors: 3,
+	  type: "Limo",
+	 color: "white",
+	   gas: true,
+	  make: ["Benz", "Cadillac", "Lexus"],
+	 doors: 3,
 	driver: "John",
-	driveTo: function () {
+//Getter and Accessor
+	getColor: function(){
+		this.color = color;
+	},
+//Setter and Mutator
+    setColor: function(newColor){
+    this.color = newColor;
+    return newColor; 
+    },
+//Method Function 
+    pumpGas: function(gasType){
+    var gasType;
+    return "The driver had to get " + gasType + " gas.";
+    },
+
+//Method Procedure
+   driveTo: function () {  
 		console.log("The car should pick us up in ten minutes.")
 	},
-	address: {
+	   address: {
 		street: 1234,
-		city: "San Antonio"
+		  city: "San Antonio"
 	}
 };
 
-//JSON DATA As AN ARRAY     
+//JSON DATA As AN ARRAY------------------------------------------------------     
 var json = {
 	"waiters": [{
 		"table": 123,
@@ -50,7 +66,7 @@ var json = {
 
 };
 
-//Object: JSON 
+//Object: JSON---------------------------------------------------------------
 var handleData = function (json) {
 		for (var i = 0; i < json.waiters.length; i++) {
 			var waiter = json.waiters[i];
@@ -58,7 +74,7 @@ var handleData = function (json) {
 		};
 	};
 
-//Procedure
+//Procedure-------------------------------------------------------------------
 //Propose.
 var proposeTo = function (fiance) {
 		if (fiance === true) {
@@ -74,7 +90,7 @@ var proposeTo = function (fiance) {
 		};
 	};
 
-//Boolean Function.
+//Boolean Function----------------------------------------------------------
 // Are all the guests present and seated?
 var seatGuests = function (checkList, callGuests) {
 		var seatGuests = checkList || callGuests;
@@ -90,7 +106,7 @@ var seatGuests = function (checkList, callGuests) {
 	};
 
 
-//Array Function 
+//Array Function-----------------------------------------------------------
 // Where is the ring?
 var findRing = function (location) {
 		var davidsVariable = "";
@@ -104,7 +120,7 @@ var findRing = function (location) {
 	};
 
 
-//Number Function
+//Number Function----------------------------------------------------------
 // Cost for each dinner plate.
 var buyPlate = function (qtyPlate) {
 		var costPerPlate = 5;
@@ -113,16 +129,16 @@ var buyPlate = function (qtyPlate) {
 		var i = 0;
 
 		// I woould like to repeat the cost per plat but also say how many plates. How would I do this?
-		while (i < 6) {
+		while (i < 1) {
 			totalCost += qtyPlate * costPerPlate;
 			console.log("The cost for one plate is " + totalCost + " dollars.");
 			i++;
 
 		}
-		return "The total amount of our tab will be " + totalCost + " dollars.";
+		return "The total tab per person will be " + totalCost + " dollars.";
 	};
 
-//String Function
+//String Function---------------------------------------------------------
 //My fiance. 
 var fiance = function (age, name) {
 
@@ -132,14 +148,14 @@ var fiance = function (age, name) {
 		return convo;
 	};
 
-//Property Object Function
+//Property Object Function------------------------------------------------
 //Which car will pick us up from the Olive Garden? 
 //This is where I am lost?
 var limoMake = function (makeCar) {
 		if (makeCar === "Benz") {
-
-			console.log("Her favorite car is a Benz and I am so glad they brought this car!");
-			if (makeCar === "Lexus") console.log("I don't think she would mind driving in a Lexus.")
+			console.log("She is going to be so excited when the stretch Benz pulls up!");
+		if (makeCar === "Lexus") 
+			console.log("I don't think she would mind driving in a Lexus.")
 
 		} else {
 			console.log("They brought the wrong car I did not ask for a Cadillac!");
@@ -151,12 +167,20 @@ var limoMake = function (makeCar) {
 
 
 
-//Outputs
+//Outputs-----------------------------------------------------------------
 var guestsPresent = seatGuests(true, true);
 console.log(findRing(ringLocation));
 console.log(fiance());
-console.log(buyPlate(3));
+console.log(buyPlate());
 handleData(json);
 (proposeTo(true));
 (limoMake("Benz"));
+
+myvar = guestCar.driver;
+console.log("The driver " + myvar + " may be running a few minutes late because he stopped to get gas.");
+console.log(guestCar.pumpGas("regular"));
 guestCar.driveTo();
+carVar = "The car is " + guestCar.color + " so it shouldn't be hard to find.";
+console.log(carVar);
+var whatColor = guestCar.setColor("black"); 
+console.log("I hope the car is not " + whatColor + ".");
