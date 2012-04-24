@@ -23,7 +23,7 @@ var desLibrary = function(){
 
 //String Function-------------------------------------------------------------
 //Does a string follow a 123-456-7890 pattern like a phone number?
-var checkNum = function(number){
+var verifyNum = function(number){
    var regEx = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
    // ^ Matches the beginning of a line.
    // \ ? Creates the parenthesis around the area code.
@@ -42,10 +42,11 @@ var checkNum = function(number){
 
 }; 
 
-
-
-
 //Does a string follow an aaa@bbb.ccc pattern like an email address?
+
+
+
+
 //Is the string a URL? (Does it start with http: or https:?)
 //Title-case a string (split into words, then uppercase the first letter of each word)
 //Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
