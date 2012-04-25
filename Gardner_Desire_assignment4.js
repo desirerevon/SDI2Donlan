@@ -63,17 +63,21 @@ var validateUrl = function(url){
     };
        return validate;
     };
+    
+//Number Functions--------------------------------------------------------------
+//Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
+var getDecimal = function(number){
+  var roundNum = number.toFixed(2);
+  return roundNum;
 
-//Title-case a string (split into words, then uppercase the first letter of each word)   
-    
-    
-    
-    
+};
+
 //Returns-----------------------------------------------------------------------
     return{
 	   "phone": validatePhoneNum,
 	   "email": validateEmail,
-	   "url":   validateUrl
+	   "url":   validateUrl,
+	   "decimal": getDecimal
 	   };
 };
 
@@ -82,3 +86,4 @@ var mylib = desLibrary();
 console.log(mylib.phone("(210)-525-2324"));
 console.log(mylib.email("desirerevon1@google.com"));
 console.log(mylib.url("http://sdiworld.com"));
+console.log(mylib.decimal(5.1));
