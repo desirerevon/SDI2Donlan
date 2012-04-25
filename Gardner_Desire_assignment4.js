@@ -36,12 +36,12 @@ var verifyNum = function(number){
      
      }else{
       var verify = "This number is invalid"
+      var regEx
 
 	return verify;
 }; 
 
 };
-
 
 //Does a string follow an aaa@bbb.ccc pattern like an email address?
 var verifyEmail = function(email){
@@ -60,15 +60,33 @@ var verifyEmail = function(email){
        var verify = "This is not a valid email address." 
        
        return verify; 
-      
-      
 };
     
 };
 
-
-
 //Is the string a URL? (Does it start with http: or https:?)
+var verifyUrl = function(url){
+     var regEx = ^(http|https):\/\/[\w.\-]+\.[A-Za-z]{2,6}
+     // ^ Marks the beginning of the expression line.
+     // (http|https) This may include either http(s). | Allows room for additional protocols.
+     // \/\/ escapes the forward slashes.
+     // [\w.\-] Word, special characters allowed.
+     // +\. Tells js that there will be a period between characters.
+     //[A-Za-z] Upper/Lower case letters allowed.
+     //[2,6] Url will end in 2-6 characters. This shows the min/max amount.
+     	if(regEx(url)){
+     	 var verify = "This is a valid url."
+     	 
+     	 }else{
+          
+         var verify = "This is not an invalid url."
+     	
+     	};
+
+};
+
+
+};
 //Title-case a string (split into words, then uppercase the first letter of each word)
 //Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 //Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
