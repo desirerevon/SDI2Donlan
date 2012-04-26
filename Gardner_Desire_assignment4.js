@@ -2,12 +2,13 @@ alert("JavaScript works!");
 
 //Desire Revon
 //Project 4 
-//Code Library 
+//Creating a code Library Using Module Pattern
 
 
-//String Functions-------------------------------------------------------------
+//My Code Library 
 var desLibrary = function(){
 
+//String Functions-------------------------------------------------------------
 //Does a string follow a 123-456-7890 pattern like a phone number?   
    var validatePhoneNum = function(number){
     var regEx = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -72,12 +73,30 @@ var getDecimal = function(number){
 
 };
 
+//Find the number of hours or days difference between two dates.
+var diffInDays = function(days){
+  var d1 = new Date(2012,00,14);
+  var d2 = new Date(2012,00,20);
+  var diffDays = d2-d1;
+  var convertMs = diffDays/1000/60/60/24
+  
+ return convertMs; 
+};
+
+//Array Functions---------------------------------------------------------------
+//Find the smallest value in an array that is greater than a given number
+
+
+
+
 //Returns-----------------------------------------------------------------------
     return{
-	   "phone": validatePhoneNum,
-	   "email": validateEmail,
-	   "url":   validateUrl,
-	   "decimal": getDecimal
+	   "phone"  : validatePhoneNum,
+	   "email"  : validateEmail,
+	   "url"    : validateUrl,
+	   "decimal": getDecimal,
+	   "days"   : diffInDays
+	   
 	   };
 };
 
@@ -87,3 +106,5 @@ console.log(mylib.phone("(210)-525-2324"));
 console.log(mylib.email("desirerevon1@google.com"));
 console.log(mylib.url("http://sdiworld.com"));
 console.log(mylib.decimal(5.1));
+console.log(mylib.days());
+
