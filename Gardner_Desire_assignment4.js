@@ -75,7 +75,7 @@ var getDecimal = function(number){
 
 //Find the number of hours or days difference between two dates.
 var diffInDays = function(days){
-  var d1 = new Date(2012,00,14);
+  var d1 = new Date(2012,00,14); 
   var d2 = new Date(2012,00,20);
   var diffDays = d2-d1;
   var convertMs = diffDays/1000/60/60/24
@@ -83,10 +83,16 @@ var diffInDays = function(days){
  return convertMs; 
 };
 
+//Given a string version of a number such as "42", return the value as an actual Number, such as 42.
+var valueOfString = function(string){
+    var getValue = Number(string);
+    return getValue;
+};
+
+ 
+
 //Array Functions---------------------------------------------------------------
 //Find the smallest value in an array that is greater than a given number
-
-
 
 
 //Returns-----------------------------------------------------------------------
@@ -95,9 +101,10 @@ var diffInDays = function(days){
 	   "email"  : validateEmail,
 	   "url"    : validateUrl,
 	   "decimal": getDecimal,
-	   "days"   : diffInDays
-	   
+	   "days"   : diffInDays,
+	   "value"  : valueOfString
 	   };
+	   
 };
 
 //Outputs
@@ -107,4 +114,5 @@ console.log(mylib.email("desirerevon1@google.com"));
 console.log(mylib.url("http://sdiworld.com"));
 console.log(mylib.decimal(5.1));
 console.log(mylib.days());
+console.log(mylib.value("42"));
 
